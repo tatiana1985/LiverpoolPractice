@@ -18,6 +18,7 @@ package com.android.example.liverpool.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.android.example.liverpool.ui.history.HistoryViewModel
 
 import com.android.example.liverpool.ui.search.SearchProductViewModel
 import com.android.example.liverpool.viewmodel.GithubViewModelFactory
@@ -33,6 +34,13 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SearchProductViewModel::class)
     abstract fun bindSearchProductViewModel(searchViewModel: SearchProductViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HistoryViewModel::class)
+    abstract fun bindv(searchViewModel: HistoryViewModel): ViewModel
+
+
 
     @Binds
     abstract fun bindViewModelFactory(factory: GithubViewModelFactory): ViewModelProvider.Factory

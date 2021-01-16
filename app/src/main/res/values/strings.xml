@@ -21,4 +21,6 @@
     <string name="search_hint">Search products</string>
     <string name="content_description">Image product</string>
     <string name="menu_history">History</string>
+    <string name="delete">Borrar</string>
+    <string name="delete_all">Borrar todo</string>
 </resources>

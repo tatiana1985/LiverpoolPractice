@@ -48,6 +48,7 @@ abstract class NetworkBoundResource<ResultType, RequestType>
         result.addSource(dbSource) { data ->
             result.removeSource(dbSource)
             if (shouldFetch(data)) {
+                cleanFromDb()
                 fetchFromNetwork(dbSource)
             } else {
                 result.addSource(dbSource) { newData ->
@@ -114,6 +115,9 @@ abstract class NetworkBoundResource<ResultType, RequestType>
 
     @WorkerThread
     protected abstract fun saveCallResult(item: RequestType)
+
+    @WorkerThread
+    protected abstract fun cleanFromDb()
 
     @MainThread
     protected abstract fun shouldFetch(data: ResultType?): Boolean

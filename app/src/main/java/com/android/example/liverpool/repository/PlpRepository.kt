@@ -82,11 +82,11 @@ class PlpRepository @Inject constructor(
                 return productDao.load()
             }
 
-            //override fun cleanFromDb() {
-              //  runBlocking(Dispatchers.Default) {
-              //      productDao.deleteAll()
-              //  }
-            //}
+            override fun cleanFromDb() {
+                runBlocking(Dispatchers.Default) {
+                    productDao.deleteAll()
+                }
+            }
 
 
             override fun createCall() = liverpoolService.searchPlp("true",search,1,10 )
