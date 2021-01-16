@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <import type="com.android.example.liverpool.api.PlpSearchProductResponse" />
+        <import type="com.android.example.liverpool.vo.PlpSearchProductResults" />
+
+
+        <import type="java.util.List" />
+
+        <import type="com.android.example.liverpool.vo.Status" />
+        <import type="com.android.example.liverpool.vo.Product" />
+        <import type="com.android.example.liverpool.vo.Resource" />
+        <import type="androidx.lifecycle.LiveData"/>
+        <variable
+            name="query"
+            type="LiveData&lt;String>" />
+
+        <variable
+            name="loadingMore"
+            type="boolean" />
+
+        <variable
+            name="searchResult"
+            type="LiveData&lt;Resource&lt;List&lt;Product>>>" />
+
+        <variable
+            name="callback"
+            type="com.android.example.liverpool.ui.common.RetryCallback" />
+
+        <variable
+            name="suggestResult"
+            type="LiveData&lt;PlpSearchProductResults>" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/textInputLayout3">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_input"
+                android:inputType="textNoSuggestions"
+                android:imeOptions="actionSearch"
+                android:hint="@string/search_hint"
+                tools:text="google" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/results_products_list"
+            tools:listitem="@layout/product_item"
+            app:layoutManager="LinearLayoutManager"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:id="@+id/load_more_bar"
+            app:visibleGone="@{loadingMore}"/>
+
+    </LinearLayout>
+</layout>

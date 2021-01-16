@@ -19,9 +19,7 @@ package com.android.example.liverpool.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-import com.android.example.liverpool.ui.repo.RepoViewModel
-import com.android.example.liverpool.ui.search.SearchViewModel
-import com.android.example.liverpool.ui.user.UserViewModel
+import com.android.example.liverpool.ui.search.SearchProductViewModel
 import com.android.example.liverpool.viewmodel.GithubViewModelFactory
 
 import dagger.Binds
@@ -33,18 +31,8 @@ import dagger.multibindings.IntoMap
 abstract class ViewModelModule {
     @Binds
     @IntoMap
-    @ViewModelKey(UserViewModel::class)
-    abstract fun bindUserViewModel(userViewModel: UserViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(SearchViewModel::class)
-    abstract fun bindSearchViewModel(searchViewModel: SearchViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(RepoViewModel::class)
-    abstract fun bindRepoViewModel(repoViewModel: RepoViewModel): ViewModel
+    @ViewModelKey(SearchProductViewModel::class)
+    abstract fun bindSearchProductViewModel(searchViewModel: SearchProductViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: GithubViewModelFactory): ViewModelProvider.Factory

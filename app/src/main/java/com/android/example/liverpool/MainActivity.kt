@@ -17,10 +17,17 @@
 package com.android.example.liverpool
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import com.android.example.liverpool.ui.search.SearchProductFragment
+import com.android.example.liverpool.ui.search.SearchProductFragmentDirections
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import timber.log.Timber
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
@@ -30,6 +37,18 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.history, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        findNavController(R.id.container).navigate(SearchProductFragmentDirections.showHistory())
+        return super.onOptionsItemSelected(item)
     }
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector

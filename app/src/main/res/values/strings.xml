@@ -18,10 +18,7 @@
     <string name="app_name">Test Liverpool</string>
     <string name="retry">Retry</string>
     <string name="unknown_error">Unknown Error</string>
-    <string name="a11y_user_photo">user photo</string>
-    <string name="a11y_user_name">user name</string>
-    <string name="search_hint">search repositories</string>
-    <string name="repo_full_name"><b>%s</b>/%s</string>
-    <string name="empty_search_result">No results for <b>%s</b></string>
-    <string name="a11y_contributor_avatar">contributor avatar</string>
+    <string name="search_hint">Search products</string>
+    <string name="content_description">Image product</string>
+    <string name="menu_history">History</string>
 </resources>

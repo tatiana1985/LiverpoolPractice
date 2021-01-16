@@ -86,6 +86,13 @@ dependencies {
     implementation deps.retrofit.gson
     implementation deps.glide.runtime
 
+    //Retrofit and OkHttp for Networking
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    //Logging Network Calls
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
     implementation deps.dagger.runtime
     implementation deps.dagger.android
     implementation deps.dagger.android_support

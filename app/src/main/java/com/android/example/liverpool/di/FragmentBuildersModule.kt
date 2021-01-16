@@ -16,9 +16,8 @@
 
 package com.android.example.liverpool.di
 
-import com.android.example.liverpool.ui.repo.RepoFragment
-import com.android.example.liverpool.ui.search.SearchFragment
-import com.android.example.liverpool.ui.user.UserFragment
+import com.android.example.liverpool.ui.history.HistoryFragment
+import com.android.example.liverpool.ui.search.SearchProductFragment
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -26,12 +25,10 @@ import dagger.android.ContributesAndroidInjector
 @Suppress("unused")
 @Module
 abstract class FragmentBuildersModule {
-    @ContributesAndroidInjector
-    abstract fun contributeRepoFragment(): RepoFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeUserFragment(): UserFragment
+    abstract fun contributeSearchProductFragment(): SearchProductFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeSearchFragment(): SearchFragment
+    abstract fun contributeHistoryFragment(): HistoryFragment
 }
